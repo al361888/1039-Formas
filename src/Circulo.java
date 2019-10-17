@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class Circulo extends FormaComponent {
     int x1;
     int y1;
@@ -15,8 +17,7 @@ public class Circulo extends FormaComponent {
 
     @Override
     public void dibuja() {
-        String s = "  ";
-        System.out.print(profundidad()*' ');
+        System.out.print(String.join("", Collections.nCopies(profundidad(), "  ")));
         System.out.println(String.format("Circulo(%d, %d, %d) ", this.x1, this.y1, this.radio));
     }
 

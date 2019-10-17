@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 public class Rectangulo extends FormaComponent{
     int x1;
     int y1;
@@ -16,7 +18,7 @@ public class Rectangulo extends FormaComponent{
 
     @Override
     public void dibuja() {
-        System.out.print(profundidad()*' ');
+        System.out.print(String.join("", Collections.nCopies(profundidad(), "  ")));
         System.out.println(String.format("Rectangulo(%d, %d, %d, %d) ", this.x1, this.y1, this.x2, this.y2));
     }
 

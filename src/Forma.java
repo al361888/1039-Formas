@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Forma extends FormaComponent{
     String nombre;
@@ -10,11 +11,13 @@ public class Forma extends FormaComponent{
 
     @Override
     public void dibuja() {
-        System.out.print(profundidad()*' ');
+        System.out.print(String.join("", Collections.nCopies(profundidad(), "  ")));
         System.out.println("Forma("+this.nombre+") {");
         for (FormaComponent f: listaFormas){
+            System.out.print(String.join("", Collections.nCopies(profundidad(), "  ")));
             f.dibuja();
         }
+        System.out.print(String.join("", Collections.nCopies(profundidad(), "  ")));
         System.out.println("}");
     }
 
@@ -27,11 +30,13 @@ public class Forma extends FormaComponent{
 
     @Override
     public void anade(FormaComponent fc) {
+        fc.padre = this;
         listaFormas.add(fc);
     }
 
     @Override
     public void elimina(FormaComponent fc) {
         listaFormas.remove(listaFormas.indexOf(fc));
+
     }
 }
